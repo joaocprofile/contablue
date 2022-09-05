@@ -15,6 +15,10 @@ type Category struct {
 	CreatedAt   time.Time `json:"created_at,omitempty"`
 }
 
+func NewCategory() *Category {
+	return &Category{}
+}
+
 func (c Category) Prepare() *errs.Error {
 	return c.validate()
 }
