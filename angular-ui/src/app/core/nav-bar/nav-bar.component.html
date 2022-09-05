@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="navbar-logo flex" style="margin-left: 20px">
+    <p-button
+      #btn
+      type="button"
+      class="mr-2"
+      icon="pi pi-th-large"
+      (click)="visibleSidebar = true"
+    ></p-button>
+    <img src="../assets/logo.svg" alt="Logo" />
+  </div>
+</nav>
+
+<p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+  <p-panelMenu [model]="items" [style]="{ width: '280px' }"></p-panelMenu>
+</p-sidebar>

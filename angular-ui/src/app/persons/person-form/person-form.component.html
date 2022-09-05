@@ -1,0 +1,143 @@
+<div class="container">
+  <form #formPerson="ngForm" (ngSubmit)="save(formPerson)">
+    <div class="grid">
+      <div class="col-12">
+        <h1>Nova Pessoa</h1>
+      </div>
+
+      <div class="col-12 p-fluid">
+        <label>Nome</label>
+        <input
+          pInputText
+          type="text"
+          name="name"
+          ngModel
+          #name="ngModel"
+          required
+        />
+        <app-message
+          [control]="name"
+          error="required"
+          text="Digite um nome"
+        ></app-message>
+      </div>
+
+      <div class="col-12 md:col-9 p-fluid">
+        <label>Logradouro</label>
+        <input
+          pInputText
+          type="text"
+          name="logradouro"
+          ngModel
+          #logradouro="ngModel"
+          required
+        />
+        <app-message
+          [control]="logradouro"
+          error="required"
+          text="Digite um endereço"
+        ></app-message>
+      </div>
+
+      <div class="col-12 md:col-3 p-fluid">
+        <label>Número</label>
+        <input
+          pInputText
+          type="text"
+          name="numero"
+          ngModel
+          #numero="ngModel"
+          required
+        />
+        <app-message
+          [control]="numero"
+          error="required"
+          text="Digite o número"
+        ></app-message>
+      </div>
+
+      <div class="col-12 md:col-4 p-fluid">
+        <label>Complemento</label>
+        <input pInputText type="text" />
+      </div>
+
+      <div class="col-12 md:col-5 p-fluid">
+        <label>Bairro</label>
+        <input
+          pInputText
+          type="text"
+          name="bairro"
+          ngModel
+          #bairro="ngModel"
+          required
+        />
+        <app-message
+          [control]="bairro"
+          error="required"
+          text="Digite o nome do bairro"
+        ></app-message>
+      </div>
+
+      <div class="col-12 md:col-3 p-fluid">
+        <label>Cep</label>
+        <p-inputMask
+          mask="99.999-999"
+          name="cep"
+          ngModel
+          #cep="ngModel"
+          [required]="true"
+        ></p-inputMask>
+        <app-message
+          [control]="cep"
+          error="required"
+          text="Digite o CEP"
+        ></app-message>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid">
+        <label>Cidade</label>
+        <input
+          pInputText
+          type="text"
+          name="cidade"
+          ngModel
+          #cidade="ngModel"
+          required
+        />
+        <app-message
+          [control]="cidade"
+          error="required"
+          text="Digite o nome da cidade"
+        ></app-message>
+      </div>
+      <div class="col-12 md:col-6 p-fluid">
+        <label>Estado</label>
+        <input
+          pInputText
+          type="text"
+          name="estado"
+          ngModel
+          #estado="ngModel"
+          required
+        />
+        <app-message
+          [control]="estado"
+          error="required"
+          text="Digite o estado"
+        ></app-message>
+      </div>
+
+      <div class="col-12">
+        <button
+          pButton
+          type="submit"
+          label="Salvar"
+          [disabled]="formPerson.invalid"
+        ></button>
+        <p-button type="button" label="Novo" class="p-button-info"></p-button>
+        <p-button label="Voltar para a pesquisa" styleClass="p-button-link">
+        </p-button>
+      </div>
+    </div>
+  </form>
+</div>

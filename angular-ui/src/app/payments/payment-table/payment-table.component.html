@@ -1,0 +1,60 @@
+<p-table
+  [value]="payments"
+  selectionMode="multiple"
+  responsiveLayout="scroll"
+  [responsive]="true"
+  [exportHeader]="'customExportHeader'"
+  [paginator]="true"
+  [rows]="4"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Pessoa</th>
+      <th>Descrição</th>
+      <th class="col-data-header">Vencimento</th>
+      <th class="col-data-header">Pagamento</th>
+      <th class="col-valor-header">Valor</th>
+      <th class="col-acoes-header"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-payment>
+    <tr>
+      <td>{{ payment.person.id }}</td>
+      <td>{{ payment.description }}</td>
+      <td class="col-data-content">{{ payment.due_date }}</td>
+      <td class="col-data-content">{{ payment.discharge_date }}</td>
+      <td
+        class="col-valor-content"
+        [style.color]="payment.tipo === 'DESPESA' ? 'red' : 'blue'"
+      >
+        {{ payment.valor }}
+      </td>
+      <td class="col-acoes">
+        <a
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-pencil"
+          pTooltip="Editar"
+          tooltipPosition="top"
+          class="p-button-rounded p-button-outlined"
+        ></a>
+
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-times"
+          pTooltip="Excluir"
+          tooltipPosition="top"
+          class="p-button-rounded p-button-danger p-button-outlined"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="5">Nenhuma pagamento encontrado</td>
+    </tr>
+  </ng-template>
+</p-table>
