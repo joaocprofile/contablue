@@ -12,7 +12,7 @@ import (
 func TestCategory(t *testing.T) {
 	const errorDefult = "Expected response is [%v], but responsed value was [%v]"
 
-	t.Run("when all params are valid, returns a valid struct category", func(t *testing.T) {
+	t.Run("when all params are valid, return a valid category struct", func(t *testing.T) {
 		category := categories.NewCategory()
 		category.ID = uuid.New().String()
 		category.Description = "Pagamento de fornecedor"

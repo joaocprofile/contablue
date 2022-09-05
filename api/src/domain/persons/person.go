@@ -1,9 +1,10 @@
 package persons
 
 import (
-	"errors"
 	"strings"
 	"time"
+
+	"github.com/joaocprofile/goh/core/errs"
 )
 
 type Person struct {
@@ -25,19 +26,22 @@ func NewPerson() *Person {
 	return &Person{}
 }
 
-func (p Person) Prepare() error {
+func (p Person) Prepare() *errs.Error {
 	return p.validate()
 }
 
-func (p Person) validate() error {
+func (p Person) validate() *errs.Error {
 	if p.Name == "" {
-		return errors.New("Name is required")
+		return errs.New("Name is required").BussinesError()
 	}
-	if p.Customer == "" {
-		return errors.New("Customer is required")
+	if p.Customer != "true" && p.Customer != "false" {
+		return errs.New("Customer is required").BussinesError()
 	}
-	if p.Provider == "" {
-		return errors.New("Provider is required")
+	if p.Provider != "true" && p.Provider != "false" {
+		return errs.New("Provider is required").BussinesError()
+	}
+	if p.Status != "active" && p.Status != "inactive" {
+		return errs.New("Invalid person status").BussinesError()
 	}
 	p.formatFields()
 	return nil
