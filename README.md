@@ -47,11 +47,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 A aplicação pode ser acessada em [`localhost:4000`](http://localhost:4000/). se não foi alterada a porta padrão.
 
-![Screenshot](gohrunning.jpg)
+![Screenshot](gohrunning.png)
 
 ## 🚀 Como executar o Front-end:
 
-> O front-end foi criado em Angular, não esqueça de configurar .env caso tenha alterado o padrão.
+> Em breve....
 
 ## 📄 Licença
 
